@@ -31,6 +31,7 @@ install: src
   	 -v `pwd`:/src \
   	 -v `pwd`/target/.m2:/root/.m2 \
   	 -w /src \
+	 -e MAVEN_OPTS=-Dhttps.protocols=TLSv1,TLSv1.1,TLSv1.2 \
   	 $(REPO) mvn install -Dversion=$(APP_VERSION) -Dswagger-codegen-version=$(SWAGGER_VERSION)
 	
 config:
